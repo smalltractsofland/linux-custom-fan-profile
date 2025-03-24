@@ -1,73 +1,108 @@
-Linux Custom Fan Profile
+# Linux Custom Fan Profile
 
-A simple and customizable solution for dynamically adjusting fan speeds on Linux servers, designed to optimize cooling performance and minimize noise. This project includes a Bash script and a systemd service file to create and automate custom fan profiles using ipmitool.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Features
-- Dynamically adjusts fan speeds based on real-time CPU temperatures.
-- Includes user-configurable temperature thresholds and fan speed profiles.
-- Automatically starts at boot using systemd.
-- Provides fail-safe behavior in case temperature readings are unavailable.
-- Compatible with Dell PowerEdge servers and their BMC.
+A simple and customizable solution for dynamically adjusting fan speeds on Linux servers, designed to optimize cooling performance and minimize noise. This project includes a Bash script and a systemd service file to create and automate custom fan profiles using `ipmitool`.
 
-Requirements
-- A Linux system with ipmitool and bc installed.
-- Access to the server's Baseboard Management Controller (BMC).
-- Basic knowledge of shell scripting and system administration.
+## Features
 
-1. Clone the Repository:
+-   **Dynamic Fan Control:** Adjusts fan speeds based on real-time CPU temperatures.
+-   **Configurable Profiles:** User-configurable temperature thresholds and fan speed profiles.
+-   **Systemd Integration:** Automatically starts at boot using systemd.
+-   **Fail-Safe Mechanism:** Provides fail-safe behavior in case temperature readings are unavailable.
+-   **Compatibility:** Compatible with Dell PowerEdge servers and their Baseboard Management Controller (BMC).
 
-{
-  git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git
-  cd linux-custom-fan-profile
-}
+## Requirements
 
+-   A Linux system with `ipmitool` and `bc` installed.
+-   Access to the server's Baseboard Management Controller (BMC).
+-   Basic knowledge of shell scripting and system administration.
 
+## Installation
 
+1.  **Clone the Repository:**
 
-3. Install Dependencies:
-   Ensure ipmitool and bc are installed:
-   `sudo apt update`
-   `sudo apt install ipmitool bc`
+    ```bash
+    git clone [https://github.com/smalltractsofland/linux-custom-fan-profile.git](https://github.com/smalltractsofland/linux-custom-fan-profile.git)
+    cd linux-custom-fan-profile
+    ```
 
-4. Copy the Files:
-   - Move fan_control.sh to /opt/scripts/ or another directory of your choice:
-     sudo mkdir -p /opt/scripts/
-     sudo mv fan_control.sh /opt/scripts/
-     sudo chmod +x /opt/scripts/fan_control.sh
-   - Move fan_control.service to the systemd directory:
-     sudo mv fan_control.service /etc/systemd/system/
+2.  **Install Dependencies:**
 
-5. Set Up the Systemd Service:
-   - Reload systemd:
-     sudo systemctl daemon-reload
-   - Enable the service:
-     sudo systemctl enable fan_control.service
-   - Start the service:
-     sudo systemctl start fan_control.service
+    Ensure `ipmitool` and `bc` are installed:
 
-Configuration
-Adjust Temperature Thresholds and Fan Speeds
+    ```bash
+    sudo apt update
+    sudo apt install ipmitool bc
+    ```
+
+3.  **Copy the Files:**
+
+    -   Move `fan_control.sh` to `/opt/scripts/` or another directory of your choice:
+
+        ```bash
+        sudo mkdir -p /opt/scripts/
+        sudo mv fan_control.sh /opt/scripts/
+        sudo chmod +x /opt/scripts/fan_control.sh
+        ```
+
+    -   Move `fan_control.service` to the systemd directory:
+
+        ```bash
+        sudo mv fan_control.service /etc/systemd/system/
+        ```
+
+4.  **Set Up the Systemd Service:**
+
+    -   Reload systemd:
+
+        ```bash
+        sudo systemctl daemon-reload
+        ```
+
+    -   Enable the service:
+
+        ```bash
+        sudo systemctl enable fan_control.service
+        ```
+
+    -   Start the service:
+
+        ```bash
+        sudo systemctl start fan_control.service
+        ```
+
+## Configuration
+
+### Adjust Temperature Thresholds and Fan Speeds
+
 The default configuration sets the fan speed based on the following CPU temperature ranges:
-- ≤ 50°C: 5% fan speed
-- 51–60°C: 10% fan speed
-- 61–70°C: 50% fan speed
-- > 70°C: 100% fan speed
 
-You can modify these thresholds and percentages in fan_control.sh to suit your needs.
+-   $\leq 50^\circ C$: 5% fan speed
+-   $51-60^\circ C$: 10% fan speed
+-   $61-70^\circ C$: 50% fan speed
+-   $> 70^\circ C$: 100% fan speed
 
-Fail-Safe Mode
+You can modify these thresholds and percentages in `fan_control.sh` to suit your needs.
+
+### Fail-Safe Mode
+
 If the script cannot read the CPU temperature, it sets the fan speed to 20% and retries every 60 seconds.
 
-Usage
-To manually start the script:
+## Usage
+
+### Manually Start the Script:
+
+```bash
 sudo /opt/scripts/fan_control.sh
+Check the Service Status:
+Bash
 
-To check the service status:
 sudo systemctl status fan_control.service
+Stop the Service:
+Bash
 
-To stop the service:
 sudo systemctl stop fan_control.service
-
 Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests to improve the script or add new features.
 
