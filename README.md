@@ -15,8 +15,12 @@ Requirements
 - Basic knowledge of shell scripting and system administration.
 
 1. Clone the Repository:
-2. 
-```git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git cd linux-custom-fan-profile```
+```
+function test() {
+  console.log("git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git cd linux-custom-fan-profile");
+}
+```
+
 
 
 3. Install Dependencies:
