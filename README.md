@@ -14,10 +14,9 @@ Requirements
 - Access to the server's Baseboard Management Controller (BMC).
 - Basic knowledge of shell scripting and system administration.
 
-Installation
 1. Clone the Repository:
-   `git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git`
-   `cd linux-custom-fan-profile`
+```git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git cd linux-custom-fan-profile```
+
 
 2. Install Dependencies:
    Ensure ipmitool and bc are installed:
