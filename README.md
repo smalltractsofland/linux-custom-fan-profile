@@ -23,7 +23,8 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
 1.  **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git
+    git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git &&
+    cd linux-custom-fan-profile
     ```
 
 2.  **Install Dependencies:**
