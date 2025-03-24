@@ -16,7 +16,7 @@ Requirements
 
 1. Clone the Repository:
 ```
-function test() {
+{
   console.log("git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git cd linux-custom-fan-profile");
 }
 ```
