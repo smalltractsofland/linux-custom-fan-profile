@@ -15,15 +15,16 @@ Requirements
 - Basic knowledge of shell scripting and system administration.
 
 1. Clone the Repository:
+2. 
 ```git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git cd linux-custom-fan-profile```
 
 
-2. Install Dependencies:
+3. Install Dependencies:
    Ensure ipmitool and bc are installed:
    `sudo apt update`
    `sudo apt install ipmitool bc`
 
-3. Copy the Files:
+4. Copy the Files:
    - Move fan_control.sh to /opt/scripts/ or another directory of your choice:
      sudo mkdir -p /opt/scripts/
      sudo mv fan_control.sh /opt/scripts/
@@ -31,7 +32,7 @@ Requirements
    - Move fan_control.service to the systemd directory:
      sudo mv fan_control.service /etc/systemd/system/
 
-4. Set Up the Systemd Service:
+5. Set Up the Systemd Service:
    - Reload systemd:
      sudo systemctl daemon-reload
    - Enable the service:
