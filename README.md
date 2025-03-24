@@ -23,7 +23,7 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
 1.  **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git cd linux-custom-fan-profile
+    git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git && cd linux-custom-fan-profile
     ```
 
 2.  **Install Dependencies:**
@@ -31,7 +31,7 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
     Ensure `ipmitool` and `bc` are installed:
 
     ```bash
-    sudo apt update
+    sudo apt update &&
     sudo apt install ipmitool bc
     ```
 
@@ -40,8 +40,8 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
     -   Move `fan_control.sh` to `/opt/scripts/` or another directory of your choice:
 
         ```bash
-        sudo mkdir -p /opt/scripts/
-        sudo mv fan_control.sh /opt/scripts/
+        sudo mkdir -p /opt/scripts/ &&
+        sudo mv fan_control.sh /opt/scripts/ &&
         sudo chmod +x /opt/scripts/fan_control.sh
         ```
 
