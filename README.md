@@ -16,7 +16,7 @@ Requirements
 
 Installation
 1. Clone the Repository:
-   git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git
+   `git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git`
    cd linux-custom-fan-profile
 
 2. Install Dependencies:
