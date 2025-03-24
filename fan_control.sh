@@ -9,14 +9,14 @@ set_fan_speed() {
 
 # Function to read CPU temperature from Temp sensor
 get_cpu_temp() {
-    ipmitool sensor | grep -i "Temp" | awk '{print $2}'
+    ipmitool sensor | grep -i "Temp" | awk '/Temp/ {print $3}' | grep -Eo '[0-9]+(\.[0-9]+)?'
 }
 
 # Main loop
 while true; do
     # Get the current CPU temperature
     cpu_temp=$(get_cpu_temp)
-    
+
     if [[ -z "$cpu_temp" ]]; then
         echo "Failed to read CPU temperature. Setting fan speed to 20%."
         set_fan_speed "20"  # 20% fan speed
@@ -24,14 +24,17 @@ while true; do
         continue
     fi
 
-    echo "Current CPU temperature: $cpu_temp°C"
+    # Convert the floating-point temperature to an integer
+    cpu_temp_int=$(printf "%.0f" "$cpu_temp")
+
+    echo "Current CPU temperature: $cpu_temp°C (converted to $cpu_temp_int°C)"
 
     # Determine fan speed based on temperature
-    if (( $(echo "$cpu_temp <= 50" | bc -l) )); then
+    if (( cpu_temp_int <= 50 )); then
         set_fan_speed "05"  # 5% fan speed
-    elif (( $(echo "$cpu_temp > 50 && $cpu_temp <= 60" | bc -l) )); then
+    elif (( cpu_temp_int > 50 && cpu_temp_int <= 60 )); then
         set_fan_speed "0A"  # 10% fan speed
-    elif (( $(echo "$cpu_temp > 60 && $cpu_temp <= 70" | bc -l) )); then
+    elif (( cpu_temp_int > 60 && cpu_temp_int <= 70 )); then
         set_fan_speed "32"  # 50% fan speed
     else
         set_fan_speed "64"  # 100% fan speed
