@@ -23,7 +23,7 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
 1.  **Clone the Repository:**
 
     ```bash
-    wget https://github.com/smalltractsofland/linux-custom-fan-profile.git && cd linux-custom-fan-profile
+    git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git
     ```
 
 2.  **Install Dependencies:**
@@ -31,8 +31,8 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
     Ensure `ipmitool` and `bc` are installed:
 
     ```bash
-    sudo apt update &&
-    sudo apt install ipmitool bc
+    apt update &&
+    apt install ipmitool bc
     ```
 
 3.  **Copy the Files:**
@@ -40,15 +40,15 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
     -   Move `fan_control.sh` to `/opt/scripts/` or another directory of your choice:
 
         ```bash
-        sudo mkdir -p /opt/scripts/ &&
-        sudo mv fan_control.sh /opt/scripts/ &&
-        sudo chmod +x /opt/scripts/fan_control.sh
+        mkdir -p /opt/scripts/ &&
+        mv fan_control.sh /opt/scripts/ &&
+        chmod +x /opt/scripts/fan_control.sh
         ```
 
     -   Move `fan_control.service` to the systemd directory:
 
         ```bash
-        sudo mv fan_control.service /etc/systemd/system/
+        mv fan_control.service /etc/systemd/system/
         ```
 
 4.  **Set Up the Systemd Service:**
@@ -56,19 +56,19 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
     -   Reload systemd:
 
         ```bash
-        sudo systemctl daemon-reload
+        systemctl daemon-reload
         ```
 
     -   Enable the service:
 
         ```bash
-        sudo systemctl enable fan_control.service
+        systemctl enable fan_control.service
         ```
 
     -   Start the service:
 
         ```bash
-        sudo systemctl start fan_control.service
+        systemctl start fan_control.service
         ```
 
 ## Configuration
@@ -93,15 +93,15 @@ If the script cannot read the CPU temperature, it sets the fan speed to 20% and 
 ### Manually Start the Script:
 
 ```bash
-sudo /opt/scripts/fan_control.sh
+/opt/scripts/fan_control.sh
 Check the Service Status:
 Bash
 
-sudo systemctl status fan_control.service
+systemctl status fan_control.service
 Stop the Service:
 Bash
 
-sudo systemctl stop fan_control.service
+systemctl stop fan_control.service
 Contributing
 Contributions are welcome! Feel free to open issues or submit pull requests to improve the script or add new features.
 
