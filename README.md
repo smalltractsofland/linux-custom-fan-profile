@@ -15,11 +15,12 @@ Requirements
 - Basic knowledge of shell scripting and system administration.
 
 1. Clone the Repository:
-```
+
 {
-  ("git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git cd linux-custom-fan-profile");
+  git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git
+  cd linux-custom-fan-profile
 }
-```
+
 
 
 
