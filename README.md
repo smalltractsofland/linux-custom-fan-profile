@@ -17,12 +17,12 @@ Requirements
 Installation
 1. Clone the Repository:
    `git clone https://github.com/smalltractsofland/linux-custom-fan-profile.git`
-   cd linux-custom-fan-profile
+   `cd linux-custom-fan-profile`
 
 2. Install Dependencies:
    Ensure ipmitool and bc are installed:
-   sudo apt update
-   sudo apt install ipmitool bc
+   `sudo apt update`
+   `sudo apt install ipmitool bc`
 
 3. Copy the Files:
    - Move fan_control.sh to /opt/scripts/ or another directory of your choice:
