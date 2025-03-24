@@ -1,0 +1,12 @@
+[Unit]
+Description=Dynamic Fan Control Script
+After=network.target
+
+[Service]
+ExecStart=/opt/scripts/fan_control.sh
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
+
