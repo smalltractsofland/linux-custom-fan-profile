@@ -32,8 +32,8 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
     Ensure `ipmitool` and `bc` are installed:
 
     ```bash
-    apt install git &&
     apt update &&
+    apt install git &&
     apt install ipmitool bc
     ```
 
