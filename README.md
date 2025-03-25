@@ -1,8 +1,8 @@
-# Linux Custom Fan Profile
+# Linux Custom Fan Profile- ULTRA QUIET 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 This is made for Proxmox! (notice the lack of sudo) If you'd like to use it on something else (that requires sudo) you can get around it by running `sudo su` before you begin.
-A simple and customizable solution for dynamically adjusting fan speeds on Linux servers, designed to optimize cooling performance and minimize noise. This project includes a Bash script and a systemd service file to create and automate custom fan profiles using `ipmitool`.
+A simple and customizable solution for dynamically adjusting fan speeds on Linux servers, designed to optimize cooling performance and minimize noise. This project includes a Bash script and a systemd service file to create and automate custom fan profiles using `ipmitool`. If you're a homelabber like me and got your hands on more hardware than you use, and it's in a place it can't be loud (mine is right next to my desk.) this fan profile could work for you, or you can tweak it till you're happy with it. 
 
 ## Features
 
