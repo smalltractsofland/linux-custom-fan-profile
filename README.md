@@ -72,6 +72,10 @@ A simple and customizable solution for dynamically adjusting fan speeds on Linux
         ```bash
         systemctl start fan_control.service
         ```
+    - If it's Still loud, first run: 
+1.ipmitool raw 0x30 0x30 0x01 0x00
+    2. If that doesn't do the trick, apt-get install lm-sensors. Then, run sudo sensors-detect (hit yes to everything)
+    then repeat 1 again and 2 again as needed. 
 
 ## Configuration
 
